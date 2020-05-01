@@ -32,9 +32,9 @@ general:
   predict_model: Lasso
   svm_variable: [R_metal, T_metal, C_R]
   variables:
-    dimensional: K
-    predicting_variables: ABcompound_096.csv
+    dimensional: K # to plot
+    predicting_variables: ABcompound_096.csv # hold list of predicting variables 
     remove_variable: null
     target_variable: Formation_energy
   visualize: Active
-source_file: input/Tc/TC_data_101_max.csv
+source_file: input/Tc/TC_data_101_max.csv # # maybe it is useless
