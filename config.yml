@@ -1,0 +1,41 @@
+config_name: Regression-based clustering
+function: {RBC_score_var: Active,
+        manual_assign_group_index: Dimiss,
+        analyze_RBC_score_var: Dimiss,
+        predict_test_rrbc: Dimiss
+      }
+general:
+  RBC_best_time: false
+  RBC_size_column: null
+  RBC_ntimes: 1000 # number of sampling RBC
+  alpha_search: {alpha_log_ub: -1, alpha_log_lb: -5, alpha_n_points: 30}
+
+  directory: {input_dir: /media/nguyen/work/RBC_CatVar/input/ABcompound,
+              input_file: data_ABcompound.csv,
+              out_dir: /media/nguyen/work/RBC_CatVar/result/ABcompound,
+              out_conclusion: RBC_score.csv,
+              out_extend: true,
+              pred_out_file: null,
+              test_file: Co2Dy-141_test.csv}
+
+  evaluation: {n_cv: 3, n_times: 5, cv_krr: LOO, error: MAE, score: R2}
+
+  initial_state:
+    method: auto # auto, manual
+    auto: {n_components: 3, n_neighbors: 10}
+    manual:
+      assign: {Co: 0, Fe: 1, others: 2}
+      column: T_metal
+
+  n_cluster: 3
+  n_clusters: null
+  n_iterative: 20 # number of revise_KMEANS_by_Lasso
+  predict_model: Lasso
+  svm_variable: [R_metal, T_metal, C_R]
+  variables:
+    dimensional: K
+    predicting_variables: ABcompound_096.csv
+    remove_variable: null
+    target_variable: Formation_energy
+  visualize: Active
+source_file: input/Tc/TC_data_101_max.csv
