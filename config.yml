@@ -1,11 +1,10 @@
 config_name: Regression-based clustering
 function: {RBC_score_var: Active,
-        manual_assign_group_index: Dimiss,
-        analyze_RBC_score_var: Dimiss,
-        predict_test_rrbc: Dimiss
+        # analyze_RBC_score_var: Dimiss,
+        # predict_test_rrbc: Dimiss
       }
 general:
-  RBC_best_time: false
+  RBC_best_time: False
   RBC_size_column: null
   RBC_ntimes: 1000 # number of sampling RBC
   alpha_search: {alpha_log_ub: -1, alpha_log_lb: -5, alpha_n_points: 30}

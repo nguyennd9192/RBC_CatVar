@@ -55,17 +55,6 @@ if __name__ == '__main__':
         # 0. Call main class
         # test = Regression_based(end_output=text, config=config)
         
-        if function["manual_assign_group_index"] == "Active":
-            # 8
-            test.manual_assign_group_index(target_variable=target_variable,
-                                           remove_variable=remove_variable,
-                                           train_variable=predicting_variable)
-            # 9
-            test.confusion_matrix_2(target_variable=target_variable,
-                                    remove_variable=remove_variable,
-                                    train_variable=predicting_variable)
-
-
         if function["RBC_score_var"] == "Active":
             config["visualize"] = "Dimiss"
 
@@ -140,24 +129,24 @@ if __name__ == '__main__':
         out_df = pd.DataFrame(data=best_RBCs)
         out_df.to_csv("{0}/{1}".format(config["out_dir"],config["out_conclusion"]))
 
-        if function["analyze_RBC_score_var"] == "Active":
+        # if function["analyze_RBC_score_var"] == "Active":
 
-            log_file = "{0}/log_sampling_{1}.csv".format(config["out_dir"], config["n_cluster"])
+        #     log_file = "{0}/log_sampling_{1}.csv".format(config["out_dir"], config["n_cluster"])
 
-            test.PCA_inst_group_(log_file=log_file,
-                            train_variable=predicting_variable,
-                            target_variable=target_variable,
-                            remove_variable=remove_variable)
+        #     test.PCA_inst_group_(log_file=log_file,
+        #                     train_variable=predicting_variable,
+        #                     target_variable=target_variable,
+        #                     remove_variable=remove_variable)
 
 
 
-        if function["predict_test_rrbc"] == 'Active':
-            if config["initial_method"] == "manual":
-                test.dir += '/manual_{0}/final'.format(config["n_cluster"])
+        # if function["predict_test_rrbc"] == 'Active':
+        #     if config["initial_method"] == "manual":
+        #         test.dir += '/manual_{0}/final'.format(config["n_cluster"])
 
-            y_test_predict = test.predict_test_rrbc(target_variable=target_variable,
-                                       remove_variable=remove_variable,
-                                       train_variable=predicting_variable)
+        #     y_test_predict = test.predict_test_rrbc(target_variable=target_variable,
+        #                                remove_variable=remove_variable,
+        #                                train_variable=predicting_variable)
 
 
 
